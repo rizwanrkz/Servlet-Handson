@@ -1,5 +1,6 @@
 package com.servlet;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -20,7 +21,11 @@ public class RegisterServlet extends HttpServlet{
                
         if(cond!=null){
             if(cond.equals("checked")){
-                out.println("<h2>Registered Successfully</h2>");
+                //out.println("<h2>Registered Successfully</h2>");
+                
+                //Assume data isaved in DB
+                RequestDispatcher rd = req.getRequestDispatcher("success");
+                rd.forward(req, res);
             }
             else{
                 out.println("<h2>You have not accepted T&C</h2>");
@@ -28,6 +33,10 @@ public class RegisterServlet extends HttpServlet{
         }
             else{
             out.println("<h2>You have not accepted T&C</h2>");
+            
+            //to include index.html in output
+            RequestDispatcher rd = req.getRequestDispatcher("index.html");
+            rd.include(req, res);
         }
         }
 }
