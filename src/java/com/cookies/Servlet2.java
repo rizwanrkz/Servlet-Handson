@@ -48,14 +48,17 @@ public class Servlet2 extends HttpServlet {
             boolean f = false;
             String name = "";
             
+            out.println("cookies " + cookies );
             if(cookies==null){
                 out.println("<h1>You are new user, Go to home page and submit your name");
                 return;
              }else{
                    for (Cookie c : cookies){
                        String tname = c.getName();
+                                               out.println("tname " + tname );
+
                        if(f) {
-                           out.println("<h1>Hello " + name + "Welcome back to my website </h1>");
+                           out.println("<h1>Hello " + name + " Welcome back to my website </h1>");
                        }
                        else{
                          out.println("<h1>You are new user, Go to home page and submit your name");  
