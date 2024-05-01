@@ -56,17 +56,16 @@ public class Servlet2 extends HttpServlet {
                    for (Cookie c : cookies){
                        String tname = c.getName();
                                                out.println("tname " + tname );
-
+                       if(tname.equals("user_name")){
+                           f = true;
+                           name = c.getValue();
+                               }}}
                        if(f) {
                            out.println("<h1>Hello " + name + " Welcome back to my website </h1>");
-                       }
+}
                        else{
                          out.println("<h1>You are new user, Go to home page and submit your name");  
                        }
-
-                        
-                        }
-            }
             out.println("</body>");
             out.println("</html>");
         }

@@ -45,7 +45,7 @@ public class Servlet1 extends HttpServlet {
             
             //create cookie
             
-            Cookie c = new Cookie("name", name);
+            Cookie c = new Cookie("user_name", name);
             response.addCookie(c);
             out.println(response);
             out.println("</body>");
